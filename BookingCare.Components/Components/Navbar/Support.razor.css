@@ -1,0 +1,26 @@
+﻿.container 
+{
+
+}
+
+.content 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.language 
+{
+    cursor: pointer;
+}
+
+.support
+{
+    cursor: pointer;
+}
+
+.support-text 
+{
+
+}

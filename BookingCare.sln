@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingCare.API", "BookingCare.API\BookingCare.API.csproj", "{07F0D666-E92C-4D55-A4D0-8C3C1A606A77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingCare.Shared", "BookingCare.Shared\BookingCare.Shared.csproj", "{8C5BF8D2-AD1D-4EF5-BAC2-1EE365B0F588}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingCare.API.Test", "BookingCare.API.Test\BookingCare.API.Test.csproj", "{996B7D9A-B18D-4C82-BD94-AF73339DA786}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingCare.WebClient", "BookingCare.WebClient\BookingCare.WebClient.csproj", "{B49B23C5-8880-42B3-97D3-7BDB63343D1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingCare.Components", "BookingCare.Components\BookingCare.Components.csproj", "{38350572-2C31-4B99-B1A5-9CA0177F837D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07F0D666-E92C-4D55-A4D0-8C3C1A606A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F0D666-E92C-4D55-A4D0-8C3C1A606A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F0D666-E92C-4D55-A4D0-8C3C1A606A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F0D666-E92C-4D55-A4D0-8C3C1A606A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5BF8D2-AD1D-4EF5-BAC2-1EE365B0F588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5BF8D2-AD1D-4EF5-BAC2-1EE365B0F588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5BF8D2-AD1D-4EF5-BAC2-1EE365B0F588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5BF8D2-AD1D-4EF5-BAC2-1EE365B0F588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996B7D9A-B18D-4C82-BD94-AF73339DA786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996B7D9A-B18D-4C82-BD94-AF73339DA786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996B7D9A-B18D-4C82-BD94-AF73339DA786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996B7D9A-B18D-4C82-BD94-AF73339DA786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49B23C5-8880-42B3-97D3-7BDB63343D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49B23C5-8880-42B3-97D3-7BDB63343D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49B23C5-8880-42B3-97D3-7BDB63343D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49B23C5-8880-42B3-97D3-7BDB63343D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38350572-2C31-4B99-B1A5-9CA0177F837D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38350572-2C31-4B99-B1A5-9CA0177F837D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38350572-2C31-4B99-B1A5-9CA0177F837D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38350572-2C31-4B99-B1A5-9CA0177F837D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AA82AD7-258F-407E-B385-6F397CFA811A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿.container 
+{
+    height: 75px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.content
+{
+    height: 100%; 
+    width: 100%;
+    display: flex;
+}
+
+.content-child 
+{
+    padding: 0 5px;
+    display: flex;
+    flex:1;
+    align-items: center;
+}
+
+.brand
+{
+    /*border: 1px solid red;*/
+    height: 100%;
+}
+
+
+.pages
+{
+    /*border: 1px solid blue;*/
+    height: 100%;
+    flex:3;
+}
+
+.support 
+{
+    /*border: 1px solid green;*/
+    height: 100%;
+    flex:1;
+}

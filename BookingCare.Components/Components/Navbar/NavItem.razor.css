@@ -1,0 +1,26 @@
+﻿.container 
+{
+    display: flex;
+    justify-content: center;
+}
+
+.content 
+{
+    text-align: center; 
+    padding: 4px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.title 
+{
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.sub-title
+{
+    color: #aaa;
+    font-size: 10px;
+}

@@ -1,0 +1,17 @@
+﻿.brand-menu-btn 
+{
+    cursor: pointer;
+    padding: 0 8px;
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+.logo
+{
+    background: url("../../images/logo.svg") center center no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    margin: 4px;
+}

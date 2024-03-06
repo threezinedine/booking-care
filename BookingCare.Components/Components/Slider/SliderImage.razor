@@ -1,0 +1,24 @@
+﻿@inject NavigationManager m_NavigationManager
+@inherits ComponentBase
+
+
+<div style="@m_MarginStyle" class="container">
+	<div class="content" @onclick="ClickImage">
+		<div class="image @(Item.ImageType == SliderImageType.Circle ? "circle": "rectangle")">
+			<img src="../../images/empty.png" />
+		</div>
+		<div class="name-container">
+			<div class="name-content">
+				<div class="name">@Item.Name</div>
+				@if (Item.SubName != null)
+				{
+					<div class="sub-name">@Item.SubName</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

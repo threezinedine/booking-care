@@ -1,0 +1,33 @@
+﻿@inject NavigationManager m_NavigationManager
+
+<div class="container @(BackgroundColor == SliderBackgroundColor.Grey ? "grey": "white")">
+	<div class="content">
+		<div class="title" @onclick="ClickTitle">@Title</div>
+		<div class="previous-button" @onclick="ClickPrevious">
+			<i class="fa-solid fa-chevron-left"></i>
+		</div>
+		<div class="next-button" @onclick="ClickNext">
+			<i class="fa-solid fa-chevron-right"></i>
+		</div>
+		<div class="slider-container">
+			<div class="slider-content">
+				@for (int i=0; i<Items.Count; i++)
+				{
+					var item = Items[i];
+					@if(i != 0)
+					{
+						<SliderImage Item="item" />
+					}
+					else
+					{
+						<SliderImage @ref="m_FirstItem" Item="item"/>
+					}
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,86 @@
+﻿.container {
+    width: 25%;
+    transition: all 0.5s ease;
+}
+
+.container:hover 
+{
+}
+
+.container,
+.image,
+.name
+{
+    /*border: 1px solid orange;*/
+}
+
+.content 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+}
+
+.content:hover {
+    color: aqua;
+    text-shadow: 3px 0px 7px rgba(81,67,21,0.8), 
+                    -3px 0px 7px rgba(81,67,21,0.8), 
+                    0px 4px 7px rgba(81,67,21,0.8);
+}
+
+.content:hover > .image > img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.image,
+.image img
+{
+    user-select: none;
+    border-radius: 5px;
+}
+
+image 
+{
+
+}
+
+.image.circle img 
+{
+    width: 150px;
+    height: 150px;
+    margin: 20px 50px 0 50px;
+    border-radius: 50%;
+}
+
+.image.circle 
+{
+
+}
+
+.image.rectangle img 
+{
+    width: 250px;
+    height: 200px;
+}
+
+.image.rectangle 
+{
+
+}
+
+.name 
+{
+    margin-top: 10px;
+}
+
+.name,
+.sub-name 
+{
+    text-align: center;
+}
+
+.sub-name 
+{
+}

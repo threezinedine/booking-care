@@ -20,5 +20,6 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 builder.Services.AddScoped<RequestService>();
 builder.Services.AddScoped<IStorageService, RealStorageService>();
+builder.Services.AddLocalization();
 
 await builder.Build().RunAsync();

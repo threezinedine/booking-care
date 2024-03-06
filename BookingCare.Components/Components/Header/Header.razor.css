@@ -1,6 +1,6 @@
 ﻿.container 
 {
-    background: linear-gradient(0, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), 
+    background: linear-gradient(0, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3)), 
                 url("../../images/header-background.jpg");
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@
 .spacer,
 .exam-options
 {
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 }
 
 .spacer 
@@ -34,6 +34,7 @@
 
 .banner-first-line,
 .banner-second-line {
+    user-select: none;
     text-align: center;
     color: white;
     font-size: 35px;

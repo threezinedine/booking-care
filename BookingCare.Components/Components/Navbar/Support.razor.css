@@ -1,6 +1,6 @@
 ﻿.container 
 {
-
+    user-select: none;
 }
 
 .content 

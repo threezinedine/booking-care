@@ -1,10 +1,71 @@
 ﻿@page "/"
 @using BookingCare.Components.Components.Header
+@using BookingCare.Components.Components.Slider
+@using BookingCare.Components.Shared.Resources.Languages
 
-<PageTitle>BookingCare - Comprehensive healthcare platform</PageTitle>
+@inject IStringLocalizer<Lang> m_Localizer
 
-<Navbar />
-<Header />
+<PageTitle>BookingCare - @m_Localizer.GetString("website-subtitle")</PageTitle>
+@* <PageTitle>BookingCare - Comprehensive healthcare platform</PageTitle> *@
+
+<div class="container">
+	<div class="content">
+		<div class="navbar-content">
+			<Navbar />
+		</div>
+		<div class="header-content">
+			<Header />
+		</div>
+		<div class="site-content">
+			<div class="slider specialty">
+				<Slider Title="Specialty" To="/specialties" 
+					Items="@(new List<SliderImageItem> {
+						new SliderImageItem { Name = "Specialty 0", URL = "/image-0" },
+						new SliderImageItem { Name = "Specialty 1", URL = "/image-1" },
+						new SliderImageItem { Name = "Specialty 2", URL = "/image-2" },
+						new SliderImageItem { Name = "Specialty 3", URL = "/image-3" },
+						new SliderImageItem { Name = "Specialty 4", URL = "/image-0" },
+						new SliderImageItem { Name = "Specialty 5", URL = "/image-1" },
+						new SliderImageItem { Name = "Specialty 6", URL = "/image-2" },
+						new SliderImageItem { Name = "Specialty 7", URL = "/image-3" },
+						new SliderImageItem { Name = "Specialty 8", URL = "/image-2" },
+						new SliderImageItem { Name = "Specialty 9", URL = "/image-3" },
+					})"/>
+			</div>
+			<div class="slider clinic">
+				<Slider Title="Outstanding Clinics" To="/clinics"
+					BackgroundColor="SliderBackgroundColor.White"
+					Items="@(new List<SliderImageItem> {
+						new SliderImageItem { Name = "Clinic 0", URL = "/image-0" },
+						new SliderImageItem { Name = "Clinic 1", URL = "/image-1" },
+						new SliderImageItem { Name = "Clinic 2", URL = "/image-2" },
+						new SliderImageItem { Name = "Clinic 3", URL = "/image-3" },
+						new SliderImageItem { Name = "Clinic 4", URL = "/image-0" },
+						new SliderImageItem { Name = "Clinic 5", URL = "/image-1" },
+						new SliderImageItem { Name = "Clinic 6", URL = "/image-2" },
+						new SliderImageItem { Name = "Clinic 7", URL = "/image-3" },
+						new SliderImageItem { Name = "Clinic 8", URL = "/image-2" },
+						new SliderImageItem { Name = "Clinic 9", URL = "/image-3" },
+					})"/>
+			</div>
+			<div class="slider doctors">
+				<Slider Title="Outstanding Doctors" To="/doctors"
+					Items="@(new List<SliderImageItem> {
+						new SliderImageItem { Name = "Doctor 0", SubName = "Prof", URL = "/image-0", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 1", SubName = "Prof", URL = "/image-1", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 2", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 3", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 4", SubName = "Prof", URL = "/image-0", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 5", SubName = "Prof", URL = "/image-1", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 6", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 7", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 8", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
+						new SliderImageItem { Name = "Doctor 9", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
+					})"/>
+			</div>
+		</div>
+	</div>
+</div>
 
 @code {
 

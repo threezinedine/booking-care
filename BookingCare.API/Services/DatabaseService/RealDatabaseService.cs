@@ -24,6 +24,16 @@ namespace BookingCare.API.Services.DatabaseService
 			m_DatabaseContext.RemoveRange(users);
 		}
 
+		public Task<List<Position>> GetAllPositions()
+		{
+			return m_DatabaseContext.Positions.ToListAsync();
+		}
+
+		public Task<List<Role>> GetAllRoles()
+		{
+			return m_DatabaseContext.Roles.ToListAsync();
+		}
+
 		public Task<List<User>> GetAllUsers()
 		{
 			return m_DatabaseContext.Users.ToListAsync();

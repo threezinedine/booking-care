@@ -65,5 +65,23 @@ namespace BookingCare.API.Services.DatabaseService
 					return Task.FromResult<Specialty?>(SpecialtySeeder.NonSpecialty);
 			}
 		}
+
+		public Task<List<Role>> GetAllRoles()
+		{
+			return Task.FromResult(new List<Role>
+			{
+				RoleSeeder.Doctor.Clone(),
+				RoleSeeder.Patient.Clone(),
+				RoleSeeder.Admin.Clone(),
+			});
+		}
+
+		public Task<List<Position>> GetAllPositions()
+		{
+			return Task.FromResult(new List<Position>
+			{
+				PositionSeeder.NonPosition.Clone(),
+			});
+		}
 	}
 }

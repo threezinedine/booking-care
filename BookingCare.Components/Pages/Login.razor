@@ -1,0 +1,70 @@
+﻿@page "/login"
+@inject NavigationManager m_NavigationManager
+@inject LoginViewModel m_LoginViewModel
+
+<PageTitle>Login</PageTitle>
+
+<div class="container">
+	<div class="content">
+		<div class="title">
+			Login
+		</div>
+		<div class="login-form">
+			<div class="login-input username">
+				<div class="label">Username</div>
+				<div class="input">
+					<i class="fa-solid fa-user"></i>
+					<input class="input-tag" type="text" 
+							@bind="m_LoginViewModel.Username"
+							placeholder="Type your username"/>
+				</div>
+			</div>
+			<div class="login-input password">
+				<div class="label">Password</div>
+				<div class="input">
+					<i class="fa-solid fa-lock"></i>
+					<input class="input-tag" type="password" 
+							@bind="m_LoginViewModel.Password"
+							placeholder="Type your password"/>
+				</div>
+			</div>
+			<div class="forgot-password-container">
+				<div class="forgot-password-content" @onclick="OnClickForgotPassword">
+					Forget password?
+				</div>
+			</div>
+			<div class="login-button-container">
+				<div class="login-button-content" @onclick="OnClickLogin">
+					Login
+				</div>
+			</div>
+		</div>
+		<div class="login-options">
+			<div class="login-options-title">
+				Or login using
+			</div>
+			<div class="options">
+				<div class="option option-facebook">
+					<i class="option fa-brands fa-facebook-f"></i>
+				</div>
+				<div class="option option-twitter">
+					<i class="fa-brands fa-twitter"></i>
+				</div>
+				<div class="option option-gmail">
+					<i class="fa-brands fa-google"></i>
+				</div>
+			</div>
+		</div>
+		<div class="spacer"></div>
+		<div class="sign-up">
+			<div class="sign-up-title">
+				Or sign up using
+			</div>
+			<div class="sign-up-button" @onclick="OnClickSignUp">Signup</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

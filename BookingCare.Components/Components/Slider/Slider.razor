@@ -1,8 +1,8 @@
-﻿@inject NavigationManager m_NavigationManager
+﻿@using BookingCare.Components.Components.WrapperSection
+@inject NavigationManager m_NavigationManager
 
-<div class="container @(BackgroundColor == SliderBackgroundColor.Grey ? "grey": "white")">
+<div class="container @(BackgroundColor == ColorType.Grey ? "grey": "white")">
 	<div class="content">
-		<div class="title" @onclick="ClickTitle">@Title</div>
 		<div class="previous-button" @onclick="ClickPrevious">
 			<i class="fa-solid fa-chevron-left"></i>
 		</div>

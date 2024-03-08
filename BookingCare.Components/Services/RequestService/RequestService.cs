@@ -31,5 +31,15 @@ namespace BookingCare.Components.Services.RequestService
             m_HttpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", token);
         }
+
+        public async Task SaveToken(string token)
+        {
+            await m_StorageService.SetValue(AuthenticationConstants.TokenKey, token);
+        }
+
+        public async Task ClearToken()
+        {
+            await m_StorageService.ClearValue(AuthenticationConstants.TokenKey);
+        }
     }
 }

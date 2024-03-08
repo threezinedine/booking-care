@@ -21,6 +21,7 @@
     align-items: center;
     color: #333;
     cursor: pointer;
+    padding: 0 30px;
 }
 
 .content:hover {

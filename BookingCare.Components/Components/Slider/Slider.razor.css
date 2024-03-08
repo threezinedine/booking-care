@@ -1,27 +1,21 @@
 ﻿.container 
 {
-    height: 350px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    user-select: none;
+    margin-bottom: 10px;
 }
 
 .container.grey 
 {
-    background-color: #ddd;
+
 }
 
 container.white 
 {
-    background-color: #fff;
+
 }
 
 .content 
 {
     position: relative;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
 }
 
 .previous-button,
@@ -73,6 +67,12 @@ container.white
 .next-button
 {
     right: -2%;
+}
+
+.previous-button,
+.next-button
+{
+    top: 35%;
 }
 
 

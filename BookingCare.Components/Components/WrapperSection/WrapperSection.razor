@@ -1,0 +1,17 @@
+﻿@inject NavigationManager m_NavigationManager;
+
+<div class="container @(BackgroundColor == ColorType.Grey ? "grey": "white")"
+		style="height: @(Height)px">
+	<div class="content">
+		<div class="title" @onclick="OnClickTitle">
+			@Title
+		</div>
+		<div class="body">
+			@ChildContent
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

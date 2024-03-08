@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BookingCare.Components.Types;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,6 @@ namespace BookingCare.Components.Components.Slider
 		public string URL { get; set; } = string.Empty;
 		public SliderImageType ImageType { get; set; } = SliderImageType.Rectangle;
 	}
-	public enum SliderBackgroundColor
-	{
-		White,
-		Grey,
-	}
-
 	public partial class Slider
 	{
 		[Parameter]
@@ -36,7 +31,7 @@ namespace BookingCare.Components.Components.Slider
 		[Parameter]
 		public List<SliderImageItem> Items { get; set; } = new List<SliderImageItem>();
 		[Parameter]
-		public SliderBackgroundColor BackgroundColor { get; set; } = SliderBackgroundColor.Grey;
+		public ColorType BackgroundColor { get; set; } = ColorType.Grey;
 		private SliderImage? m_FirstItem;
 
 		private int m_DisplayIndex = 0;

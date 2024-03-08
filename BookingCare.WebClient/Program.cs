@@ -2,6 +2,7 @@ using Blazored.LocalStorage;
 using BookingCare.Components.AuthStateProvider;
 using BookingCare.Components.Services.RequestService;
 using BookingCare.Components.Services.StorageService;
+using BookingCare.Components.ViewModels;
 using BookingCare.WebClient;
 using BookingCare.WebClient.Services.StorageService;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -21,5 +22,6 @@ builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>
 builder.Services.AddScoped<RequestService>();
 builder.Services.AddScoped<IStorageService, RealStorageService>();
 builder.Services.AddLocalization();
+builder.Services.AddScoped<LoginViewModel>();
 
 await builder.Build().RunAsync();

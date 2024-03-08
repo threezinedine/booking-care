@@ -61,6 +61,15 @@ namespace BookingCare.Components.Shared.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to En.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comprehensive Healthcare Platform.
         /// </summary>
         public static string website_subtitle {

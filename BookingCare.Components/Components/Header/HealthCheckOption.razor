@@ -1,13 +1,16 @@
-﻿@inject NavigationManager m_NavigationManager
+﻿@using BookingCare.Components.Components.Hoverable
+@inject NavigationManager m_NavigationManager
 
 <div class="container">
 	<div class="content" @onclick="NavigateTo">
-		<div class="icon-wrapper">
-			<i class="fa-solid @IconClass"></i>
-		</div>
-		<div class="option-text">
-			@ChildContent
-		</div>
+		<Hoverable>
+			<div class="icon-wrapper">
+				<i class="fa-solid @IconClass"></i>
+			</div>
+			<div class="option-text">
+				@ChildContent
+			</div>
+		</Hoverable>
 	</div>
 </div>
 

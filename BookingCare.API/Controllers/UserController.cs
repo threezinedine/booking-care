@@ -101,5 +101,19 @@ namespace BookingCare.API.Controllers
 			});
 			return Ok(m_Mapper.Map<UserDto>(existedUser));
 		}
+
+		[HttpGet("roles")]
+		public async Task<ActionResult<List<RoleDto>>> GetAllRoles()
+		{
+			var roles = await m_DatabaseService.GetAllRoles();
+			return Ok(roles.Select(role => m_Mapper.Map<RoleDto>(role)).ToList());
+		}
+
+		[HttpGet("positions")]
+		public async Task<ActionResult<List<PositionDto>>> GetAllPositions()
+		{
+			var positions = await m_DatabaseService.GetAllPositions();
+			return Ok(positions.Select(pos => m_Mapper.Map<PositionDto>(pos)).ToList());
+		}
 	}
 }

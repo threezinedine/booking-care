@@ -13,5 +13,8 @@ namespace BookingCare.API.Services.DatabaseService
 		public Task<Role?> GetRoleByName(Role roleInfo);
 		public Task<Position?> GetPositionByName(Position positionInfo);
 		public Task<Specialty?> GetSpecialtyByName(Specialty specialtyInfo);
+
+		public Task<List<Role>> GetAllRoles();
+		public Task<List<Position>> GetAllPositions();
 	}
 }

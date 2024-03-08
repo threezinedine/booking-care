@@ -1,0 +1,161 @@
+﻿.container 
+{
+    height: 100vh;
+    display: flex;
+    background: url("../../images/background-login.png") center center no-repeat;
+    background-size: cover;
+}
+
+.content 
+{
+    margin: 0 auto;
+    padding: 40px 40px 10px 40px;
+    width: 25%;
+    background-color: #fff;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.title 
+{
+    text-align: center;
+    font-size: 23px;
+    font-weight: 750;
+    margin-bottom: 30px;
+}
+
+.login-input 
+{
+    margin-bottom: 10px;
+}
+
+.login-input .input 
+{
+    border-bottom: 2px solid #aaa;
+    padding: 8px 10px;
+}
+
+.login-input .input
+{
+    color: #aaa;
+}
+
+.login-input .input input 
+{
+    outline: none;
+    border: none;
+    margin-left: 10px;
+}
+
+.forgot-password-container 
+{
+    display: flex;
+    justify-content: end;
+}
+
+.forgot-password-content
+{
+    cursor: pointer;
+}
+
+.forgot-password-content:hover
+{
+    text-decoration: underline;
+    color: #4068d9;
+}
+
+.login-input > input:focus-within
+{
+    border-color: green;
+}
+
+.login-button-container
+{
+
+}
+
+.login-button-content 
+{
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 20px;
+    padding: 10px 0;
+    background: linear-gradient(90deg, #993bbf, #c84d4d);
+    cursor: pointer; 
+}
+
+.login-button-content:hover 
+{
+    opacity: 0.8;
+}
+
+.login-options 
+{
+    margin-top: 30px;
+}
+
+.login-options-title,
+.sign-up-title
+{
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-options .options 
+{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+}
+
+.login-options .options .option 
+{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.option-facebook
+{
+    background-color: #37568f;
+}
+
+.option-twitter 
+{
+    background-color: #45a1ec;
+    font-size: 25px;
+}
+
+.option-gmail 
+{
+    background-color: #fe4066;
+    font-size: 25px;
+}
+
+.spacer 
+{
+    flex: 1;
+}
+
+.sign-up-button
+{
+    text-align: center;
+    text-transform: uppercase;
+    color: #999;
+    cursor: pointer;
+}
+
+.sign-up-button:hover
+{
+    color: #aaa;
+    text-decoration: underline;
+}

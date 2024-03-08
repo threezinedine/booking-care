@@ -22,11 +22,8 @@ namespace BookingCare.Shared.ModelDtos
 		public string Address { get; set; } = string.Empty;
 		public Gender Gender { get; set; } = Gender.Male;
 		public string PhoneNumber { get; set; } = string.Empty;
-		public string Role_Vi { get; set; } = string.Empty;
-		public string Role_En { get; set; } = string.Empty;
-		public string Specialty_En { get; set; } = string.Empty;
-		public string Specialty_Vi { get; set; } = string.Empty;
-		public string Position_En { get; set; } = string.Empty;
-		public string Position_Vi { get; set; } = string.Empty;
+		public RoleDto Role { get; set; } = new RoleDto();
+		public SpecialtyDto Specialty { get; set; } = new SpecialtyDto();
+		public PositionDto Position { get; set; } = new PositionDto();
 	}
 }

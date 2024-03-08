@@ -10,14 +10,17 @@ namespace BookingCare.API.Profiles
         public AutoMapperProfile()
         {
             CreateMap<User, UserDto>()
-                .ForMember(dest => dest.Role_Vi, opt => opt.MapFrom(src => src.Role.Name_Vi))
-                .ForMember(dest => dest.Role_En, opt => opt.MapFrom(src => src.Role.Name_En))
-                .ForMember(dest => dest.Specialty_En, opt => opt.MapFrom(src => src.Specialty.Name_En))
-                .ForMember(dest => dest.Specialty_Vi, opt => opt.MapFrom(src => src.Specialty.Name_Vi))
-                .ForMember(dest => dest.Position_En, opt => opt.MapFrom(src => src.Position.Name_En))
-                .ForMember(dest => dest.Position_Vi, opt => opt.MapFrom(src => src.Position.Name_Vi))
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => string.Empty));
             CreateMap<UserDto, User>();
+
+            CreateMap<Role, RoleDto>();
+            CreateMap<RoleDto, Role>();
+
+            CreateMap<Specialty, SpecialtyDto>();
+            CreateMap<SpecialtyDto, Specialty>();
+
+            CreateMap<Position, PositionDto>();
+            CreateMap<PositionDto, Position>();
         }
     }
 }

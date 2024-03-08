@@ -1,0 +1,31 @@
+﻿.container,
+.content,
+.about-content,
+.video,
+.text 
+{
+    /*border: 1px solid green;*/
+}
+
+.container 
+{
+    margin: auto 0;
+}
+
+.content 
+{
+    display: flex;
+    gap: 20px;
+}
+
+.video
+{
+    flex: 1;
+    height: 100%;
+}
+
+.text 
+{
+    flex: 1;
+    user-select: none;
+}

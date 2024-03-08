@@ -129,12 +129,36 @@ namespace BookingCare.API.Test.Controllers
 			var user = await ResponseParser.GetObjectFromOkResponse(result!);
 			user.Username.Should().Be(m_FirstValidUser.Username);
 			user.Password.Should().Be(string.Empty);
-			user.Role_En.Should().Be(RoleSeeder.Patient.Name_En);
-			user.Role_Vi.Should().Be(RoleSeeder.Patient.Name_Vi);
-			user.Specialty_En.Should().Be(SpecialtySeeder.NonSpecialty.Name_En);
-			user.Specialty_Vi.Should().Be(SpecialtySeeder.NonSpecialty.Name_Vi);
-			user.Position_En.Should().Be(PositionSeeder.NonPosition.Name_En);
-			user.Position_Vi.Should().Be(PositionSeeder.NonPosition.Name_Vi);
+			user.Role.Name_Vi.Should().Be(RoleSeeder.Patient.Name_Vi);
+			user.Role.Name_En.Should().Be(RoleSeeder.Patient.Name_En);
+			user.Specialty.Name_Vi.Should().Be(SpecialtySeeder.NonSpecialty.Name_Vi);
+			user.Specialty.Name_En.Should().Be(SpecialtySeeder.NonSpecialty.Name_En);
+			user.Position.Name_Vi.Should().Be(PositionSeeder.NonPosition.Name_Vi);
+			user.Position.Name_En.Should().Be(PositionSeeder.NonPosition.Name_En);
+		}
+
+		[Fact]
+		public async void WhenQueryAllRoles_ThenReturnsTheRoleList()
+		{
+			// Act 
+			var response = await m_ServerFixture.UserController.GetAllRoles();
+
+			// Assert
+			var result = await ResponseParser.GetListObjectFromOkResponse(response!);
+			result.Should().NotBeNull();
+			result.Count.Should().Be(3);
+		}
+
+		[Fact]
+		public async void WhenQueryAllPosition_ThenReturnAtLeast1Position()
+		{
+			// Act 
+			var response = await m_ServerFixture.UserController.GetAllPositions();
+
+			// Assert
+			var result = await ResponseParser.GetListObjectFromOkResponse(response!);
+			result.Should().NotBeNull();
+			result.Count.Should().BeGreaterThanOrEqualTo(1);
 		}
 
 		public async void Dispose()

@@ -1,14 +1,11 @@
 ﻿@page "/"
-@using BookingCare.Components.Components.About
-@using BookingCare.Components.Components.Footer
 @using BookingCare.Components.Components.Header
 @using BookingCare.Components.Components.Slider
-@using BookingCare.Components.Components.WrapperSection
 
 @inject IStringLocalizer<Lang> m_Localizer
+@inject IndexViewModel m_ViewModel
 
 <PageTitle>BookingCare - @m_Localizer.GetString("website-subtitle")</PageTitle>
-@* <PageTitle>BookingCare - Comprehensive healthcare platform</PageTitle> *@
 
 <div class="container">
 	<div class="content">
@@ -20,7 +17,7 @@
 		</div>
 		<div class="site-content">
 			<div class="slider specialty">
-				<WrapperSection Title="Specialty" 
+				<WrapperSection Title="@(m_Localizer.GetString("specialty-title"))" 
 						TitleURL="/specialties" BackgroundColor="ColorType.Grey">
 					<Slider Items="@(new List<SliderImageItem> {
 							new SliderImageItem { Name = "Specialty 0", URL = "/image-0" },
@@ -54,22 +51,12 @@
 				</WrapperSection>
 			</div>
 			<div class="slider doctors">
-				<WrapperSection Title="Outstanding Doctors" TitleURL="/doctors"
+				<WrapperSection Title="@(m_Localizer.GetString("outstanding-doctor-title"))" 
+						TitleURL="/doctors"
 						Height="300"
 						BackgroundColor="ColorType.Grey">
 					<Slider BackgroundColor="ColorType.Grey"
-						Items="@(new List<SliderImageItem> {
-							new SliderImageItem { Name = "Doctor 0", SubName = "Prof", URL = "/image-0", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 1", SubName = "Prof", URL = "/image-1", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 2", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 3", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 4", SubName = "Prof", URL = "/image-0", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 5", SubName = "Prof", URL = "/image-1", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 6", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 7", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 8", SubName = "Prof", URL = "/image-2", ImageType = SliderImageType.Circle },
-							new SliderImageItem { Name = "Doctor 9", SubName = "Prof", URL = "/image-3", ImageType = SliderImageType.Circle },
-						})"/>
+						Items="@OutstandingDoctors"/>
 				</WrapperSection>
 			</div>
 			<div class="slider handbooks">

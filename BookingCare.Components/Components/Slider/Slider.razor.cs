@@ -19,6 +19,7 @@ namespace BookingCare.Components.Components.Slider
 		public string? SubName { get; set; }
 		public string URL { get; set; } = string.Empty;
 		public SliderImageType ImageType { get; set; } = SliderImageType.Rectangle;
+		public string ImageURL { get; set; } = string.Empty;
 	}
 	public partial class Slider
 	{

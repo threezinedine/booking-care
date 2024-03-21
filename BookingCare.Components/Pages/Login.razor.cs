@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookingCare.Components.Components;
 
 namespace BookingCare.Components.Pages
 {
 	public partial class Login
 	{
+		private Form? m_FormRef { get; set; }
 		private void OnClickForgotPassword()
 		{
 			m_NavigationManager.NavigateTo("/forgot-password");
@@ -18,18 +15,26 @@ namespace BookingCare.Components.Pages
 			m_NavigationManager.NavigateTo("/sign-up");
 		}
 
+		private async Task OnLogin()
+		{
+			if (m_FormRef!.CanSubmit)
+			{
+				var errorMessage = await m_LoginViewModel.Login();
+
+				if (errorMessage != null)
+				{
+					Console.WriteLine(errorMessage);
+				}
+				else
+				{
+					m_NavigationManager.NavigateTo("/", true);
+				}
+			}
+		}
+
 		private async void OnClickLogin()
 		{
-			var errorMessage = await m_LoginViewModel.Login();
-
-			if (errorMessage != null)
-			{
-				Console.WriteLine(errorMessage);
-			}
-			else
-			{
-				m_NavigationManager.NavigateTo("/", true);
-			}
+			await m_FormRef!.Submit();
 		}
 	}
 }

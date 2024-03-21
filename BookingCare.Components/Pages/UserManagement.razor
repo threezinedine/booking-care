@@ -1,0 +1,65 @@
+﻿@page "/system/users"
+@using BookingCare.Components.Services.ToastService
+@using BookingCare.Shared.ModelDtos
+@attribute [Authorize(Roles = "Admin")]
+@layout SystemLayout
+@inject UserManagementViewModel m_ViewModel
+@inject ToastService m_ToastService
+
+<PageTitle>Admin</PageTitle>
+
+<div class="container">
+	<div class="content">
+		<div class="title">Manage Users</div>
+		<div class="body">
+			<div class="add-new-user-btn" @onclick="OnClickNewUserButton">
+				<i class="fa-solid fa-plus"></i>
+				New User
+			</div>
+			<div class="users-table">
+                <table>
+                    <tr>
+						@foreach ((string field, bool display) in m_ViewModel.UserProperties)
+						{
+							<th>@field</th>
+						}
+                        <th>Action</th>
+
+                    </tr>
+					@for (var i = 0; i < m_ViewModel.Users.Count; i++)
+                    {
+						var user = m_ViewModel.Users[i];
+						<tr class="@(i%2==0 ? "row-even": "row-odd")">
+							@foreach ((string field, bool display) in m_ViewModel.UserProperties)
+							{
+								@if (display)
+								{
+									<td>@m_ViewModel.GetPropertyValue(user, field)</td>
+								}
+							}
+							<td>
+								<div class="tools">
+									<div class="icon-wrapper icon-modify"
+											@onclick="() => OnClickEditButton(user.Username)">
+										<i class="fa-solid fa-pen"></i>
+									</div>
+									<div class="icon-wrapper icon-delete"
+											@onclick="() => m_ViewModel.DeleteUser(user.Username)">
+										<i class="fa-solid fa-trash"></i>
+									</div>
+								</div>
+							</td>
+						</tr>
+                    }
+                </table>
+            </div>
+			<Modal Title="Add New User" @ref="m_Modal" OnSubmit="OnModalSubmit">
+				<UserForm @ref="m_UserFormRef" OnSubmit="m_ViewModel.OnSubmit" />
+ 			</Modal>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

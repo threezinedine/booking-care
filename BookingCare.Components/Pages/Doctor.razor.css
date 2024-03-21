@@ -1,0 +1,88 @@
+﻿.container 
+{
+
+}
+
+.content 
+{
+
+}
+
+.user-info-container,
+.user-info-content
+{
+/*    border: 1px solid red;
+*/
+}
+
+.user-info-container 
+{
+
+}
+
+.user-info-content 
+{
+    display: flex;    
+    margin: 20px;
+}
+
+.avatar 
+{
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border: 1px solid green;
+    border-radius: 50%;
+}
+
+.avatar img 
+{
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+}
+
+.user-info-body
+{
+    flex: 1;
+    margin-left: 30px;
+}
+
+.user-info-body .name 
+{
+    display: flex;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.user-info-body .specialtiy 
+{
+    display: flex;
+    font-style: italic;
+    color: #999;
+}
+
+
+.description 
+{
+    margin: var(--wrapper-margin);
+    display: flex;
+    flex-direction: column;
+}
+
+.description .btn 
+{
+    display: inline-block;
+    align-self: flex-end;
+    justify-self: end;
+    margin-right: 35px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #196ee0;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.btn:hover
+{
+    opacity: .6;
+}

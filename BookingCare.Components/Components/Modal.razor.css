@@ -1,0 +1,93 @@
+﻿.container 
+{
+    position: relative;
+}
+
+.background 
+{
+    background-color: #333;
+    opacity: 0.4;
+}
+
+.background.active 
+{
+
+}
+
+.content,
+.background
+{
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.content 
+{
+    background-color: #fff;
+    min-width: 40%;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+
+.title 
+{
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 23px;
+    user-select: none;
+}
+
+.content.active,
+.background.active
+{
+    display: block;
+}
+
+.content.active 
+{
+}
+
+.btn-group 
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn 
+{
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn:hover 
+{
+    opacity: 0.8;
+}
+
+.btn + .btn 
+{
+    margin-left: 10px;
+}
+
+.btn-submit 
+{
+    background-color: #446eee;
+}
+
+.btn-close 
+{
+    background-color: #cb2020;
+}

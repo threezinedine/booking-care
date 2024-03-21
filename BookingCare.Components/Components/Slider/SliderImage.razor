@@ -6,7 +6,14 @@
 <div style="@m_MarginStyle" class="container">
 	<div class="content" @onclick="ClickImage">
 		<div class="image @(Item.ImageType == SliderImageType.Circle ? "circle": "rectangle")">
-			<img src="../../images/empty.png" />
+			@if (Item.ImageURL == string.Empty)
+			{
+				<img src="../../images/empty.png" />
+			}
+			else
+			{
+				<img src="@($"data:image/png;base64, {Item.ImageURL}")" />
+			}
 		</div>
 		<div class="name-container">
 			<div class="name-content">

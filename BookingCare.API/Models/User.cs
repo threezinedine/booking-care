@@ -11,6 +11,7 @@ namespace BookingCare.API.Models
 		public string Password { get; set; } = string.Empty;
 		public string FullName { get; set; } = string.Empty;
 		public string Email { get; set; } = string.Empty;
+		public string Description { get; set; } = string.Empty;
 		public string Address { get; set; } = string.Empty;
 		public string PhoneNumber { get; set; } = string.Empty;
 		public string ImageUrl { get; set; } = string.Empty;
@@ -32,10 +33,15 @@ namespace BookingCare.API.Models
 				Username = Username,
 				Password = Password,
 				Email = Email,
+				PhoneNumber = PhoneNumber,
+				FullName = FullName,
 				PositionId = PositionId,
 				Gender = Gender,
 				RoleId = RoleId,
 				SpecialtyId = SpecialtyId,
+				Position = Position,
+				Specialty = Specialty,
+				Role = Role,
 			};
 		}
 	}

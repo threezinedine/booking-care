@@ -12,16 +12,26 @@ namespace BookingCare.API.Services.DatabaseService
             m_DatabaseContext = databaseContext; 
         }
 
-		public Task AddNewUser(User user)
+		public async Task AddNewUser(User user)
 		{
 			m_DatabaseContext.Users.Add(user);
-			return Task.CompletedTask;
+
+			await m_DatabaseContext.SaveChangesAsync();
 		}
 
 		public async Task ClearUsers()
 		{
 			var users = await GetAllUsers();
 			m_DatabaseContext.RemoveRange(users);
+
+			await m_DatabaseContext.SaveChangesAsync();
+		}
+
+		public async Task DeleteUser(User user)
+		{
+			m_DatabaseContext.Users.Remove(user);
+
+			await m_DatabaseContext.SaveChangesAsync();
 		}
 
 		public Task<List<Position>> GetAllPositions()
@@ -34,9 +44,25 @@ namespace BookingCare.API.Services.DatabaseService
 			return m_DatabaseContext.Roles.ToListAsync();
 		}
 
+		public Task<List<ScheduleTime>> GetAllScheduleTimes()
+		{
+			return m_DatabaseContext.ScheduleTimes
+									.OrderBy(scheduleTime => scheduleTime.Start)
+									.ToListAsync();
+		}
+
+		public Task<List<Specialty>> GetAllSpecialties()
+		{
+			return m_DatabaseContext.Specialties.ToListAsync();
+		}
+
 		public Task<List<User>> GetAllUsers()
 		{
-			return m_DatabaseContext.Users.ToListAsync();
+			return m_DatabaseContext.Users
+					.Include(user => user.Role)
+					.Include(user => user.Position)
+					.Include(user => user.Specialty)
+					.ToListAsync();
 		}
 
 		public Task<Position?> GetPositionByName(Position positionInfo)
@@ -56,6 +82,15 @@ namespace BookingCare.API.Services.DatabaseService
 										.FirstOrDefaultAsync(spec => spec.Name_En == specialtyInfo.Name_En);
 		}
 
+		public Task<User?> GetUserById(string id)
+		{
+			return m_DatabaseContext.Users
+						.Include(user => user.Position)
+						.Include(user => user.Specialty)
+						.Include(user => user.Role)
+						.FirstOrDefaultAsync(user => user.Id == id);
+		}
+
 		public Task<User?> GetUserByUsername(User userInfo)
 		{
 			return m_DatabaseContext.Users
@@ -65,7 +100,31 @@ namespace BookingCare.API.Services.DatabaseService
 								.FirstOrDefaultAsync(user => user.Username == userInfo.Username);
 		}
 
-		public async Task Save()
+		public Task<List<User>> GetUsersByRole(Role role, int index, int size)
+		{
+			if (size == 0)
+			{
+				return m_DatabaseContext.Users
+									.Include(user => user.Role)
+									.Include(user => user.Specialty)
+									.Include(user => user.Position)
+									.Where(user => user.Role == role)
+									.ToListAsync();
+			}
+			else
+			{
+				return m_DatabaseContext.Users
+									.Include(user => user.Role)
+									.Include(user => user.Specialty)
+									.Include(user => user.Position)
+									.Where(user => user.Role == role)
+									.Skip(index * size)
+									.Take(size)
+									.ToListAsync();
+			}
+		}
+
+		public async Task UpdateUser(User userInfo)
 		{
 			await m_DatabaseContext.SaveChangesAsync();
 		}

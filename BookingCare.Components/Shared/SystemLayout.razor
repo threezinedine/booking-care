@@ -1,0 +1,40 @@
+﻿@using System.Security.Claims
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider AuthStateProvider
+
+<div class="container">
+	<div class="content">
+		<SystemNavbar Items="@m_Items" />
+		<div class="body">
+			@Body
+		</div>
+	</div>
+</div>
+
+@code {
+	private AuthenticationState? m_AuthState;
+	private Dictionary<string, List<Tuple<string, string>>> m_Items = new Dictionary<string, List<Tuple<string, string>>>();
+
+	protected override async Task OnInitializedAsync()
+	{
+		m_AuthState = await AuthStateProvider.GetAuthenticationStateAsync();
+
+		// check the role of the user
+		var role = m_AuthState.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+		if (role == "Admin")
+		{
+			m_Items.Add("Users", new List<Tuple<string, string>>{ Tuple.Create("Users", "/system/users") });
+			m_Items.Add("Doctors", new List<Tuple<string, string>> { Tuple.Create("Doctors", "/system/doctors") });
+			m_Items.Add("Clinics", new List<Tuple<string, string>> { Tuple.Create("Clinics", "/system/clinics") });
+			m_Items.Add("Specialty", new List<Tuple<string, string>> { Tuple.Create("Specialty", "/system/specialty") });
+			m_Items.Add("Handbooks", new List<Tuple<string, string>> { Tuple.Create("Handbooks", "/system/handbooks") });
+		}
+		else
+		{
+			m_Items.Add("Bookings", new List<Tuple<string, string>>{ Tuple.Create("Bookings", "/system/bookings") });
+			m_Items.Add("Profile", new List<Tuple<string, string>>{ Tuple.Create("Profile", "/system/profile") });
+			m_Items.Add("Handbooks", new List<Tuple<string, string>> { Tuple.Create("Handbooks", "/system/handbooks") });
+		}
+	}
+}

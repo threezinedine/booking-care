@@ -13,5 +13,18 @@ namespace BookingCare.API.Models
 		public string ImageUrl { get; set; } = string.Empty;
 
 		public List<User> Doctors { get; set; } = new List<User>();
+
+		public Specialty Clone()
+		{
+			return new Specialty
+			{
+				Id = Id,
+				Name_En = Name_En,
+				Name_Vi = Name_Vi,
+				Description_En = Description_En,
+				Description_Vi = Description_Vi,
+				ImageUrl = ImageUrl,
+			};
+		}
 	}
 }

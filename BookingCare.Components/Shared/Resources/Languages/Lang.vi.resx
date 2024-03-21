@@ -120,6 +120,12 @@
   <data name="language" xml:space="preserve">
     <value>Vi</value>
   </data>
+  <data name="outstanding-doctor-title" xml:space="preserve">
+    <value>Bác sĩ nổi bật</value>
+  </data>
+  <data name="specialty-title" xml:space="preserve">
+    <value>Chuyên khoa</value>
+  </data>
   <data name="website-subtitle" xml:space="preserve">
     <value>Nền tảng chăm sóc sức khỏe toàn diện</value>
   </data>

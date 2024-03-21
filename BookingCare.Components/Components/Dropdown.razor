@@ -1,0 +1,28 @@
+﻿@using Components
+@inject NavigationManager m_NavigationManager
+
+
+<div class="menu-container">
+	<div class="menu-btn">System</div>
+	<div class="menu">
+		@foreach (var item in Items)
+		{
+			<div class="menu-item">
+				<div class="item-title">@item.Key</div>
+
+				<div class="sub-menu">
+					@foreach ((string title, string route) in item.Value)
+					{
+						<div class="sub-menu-item" @onclick="() => m_NavigationManager.NavigateTo(route)">
+							@title
+						</div>
+					}
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+@code {
+
+}

@@ -7,7 +7,17 @@
 :root 
 {
     --wrapper-margin: 30px;
+    --success-color: #0bca69;
+    --info-color: #0b69ca;
+    --warning-color: #ca9f0b;
+    --danger-color: #ca0b0b;
+
+    --markdown-height: 80vh;
+
+    --avatar-size: 150px;
 }
+
+
 
 body
 {

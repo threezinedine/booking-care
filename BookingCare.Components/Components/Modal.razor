@@ -1,0 +1,19 @@
+﻿@inherits ComponentBase
+
+<div class="container">
+	<div class="background @(m_IsActive ? "active": "")" @onclick="CloseModal"></div>
+	<div class="content @(m_IsActive ? "active": "")">
+		<div class="title">@Title</div>
+		<div class="body">
+			@ChildContent
+		</div>
+		<div class="btn-group">
+			<div class="btn btn-submit" @onclick="ClickSubmit">Submit</div>
+			<div class="btn btn-close" @onclick="CloseModal">Close</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

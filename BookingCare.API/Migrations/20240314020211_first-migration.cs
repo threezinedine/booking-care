@@ -261,22 +261,51 @@ namespace BookingCare.API.Migrations
             migrationBuilder.InsertData(
                 table: "positions",
                 columns: new[] { "Id", "Name_En", "Name_Vi" },
-                values: new object[] { "750c1298-e23a-43f0-afda-54644f5e31cc", "Non Position", "Đéo có" });
+                values: new object[,]
+                {
+                    { "0a0c8a4a-db06-44b4-a568-f9e3f09dac48", "Professor", "Giáo sư" },
+                    { "6afc3f27-6d4e-4050-a78d-c648393bcc1d", "Non Position", "Đéo có" },
+                    { "b5f615df-5006-4ab3-9b30-9fe5b3e87c1c", "Doctor of Medicine", "Trưởng Khoa" },
+                    { "bd62ddca-2e06-4f95-b191-2084cceca3ac", "Doctor of Osteopathic Medicine", "Bác sĩ y học thực hành" },
+                    { "ec041a65-1601-4a8b-8141-85769c9f4b7a", "Fellow", "Thực tập chuyên môn" }
+                });
 
             migrationBuilder.InsertData(
                 table: "roles",
                 columns: new[] { "Id", "Name_En", "Name_Vi" },
                 values: new object[,]
                 {
-                    { "4e1b9bb1-b407-4875-bca7-bc48d4018497", "Patient", "Bệnh nhân" },
-                    { "85314483-5730-4409-81b8-1ad31d664537", "Doctor", "Bác sĩ" },
-                    { "e0302c20-ddbe-46aa-95f4-d82dcfd4f4af", "Admin", "Đấng" }
+                    { "0c3d473b-100d-43c0-9bf4-14bdd2810a55", "Patient", "Bệnh nhân" },
+                    { "23dc80bc-71eb-47f2-96b7-86525058c735", "Doctor", "Bác sĩ" },
+                    { "6faa8346-b48e-4c72-b639-7d7b56ea9c36", "Admin", "Đấng" }
                 });
 
             migrationBuilder.InsertData(
                 table: "specialties",
                 columns: new[] { "Id", "Description_En", "Description_Vi", "ImageUrl", "Name_En", "Name_Vi" },
-                values: new object[] { "e96b5e58-8a02-4176-872f-12f701074ef4", "This role is used for non-doctor users", "Chức vụ này dành cho người không phải là bác sĩ", "", "No Specialty", "Đéo có chuyên khoa" });
+                values: new object[,]
+                {
+                    { "06b5f3fc-2d2d-4af4-bc02-a2f9bcaccabe", "This role is used for pulmonology doctors", "Chức vụ này dành cho bác sĩ hô hấp", "", "Pulmonology", "Hô hấp" },
+                    { "1035eb90-df7c-437e-8914-e28f58dd0be4", "This role is used for radiology doctors", "Chức vụ này dành cho bác sĩ x quang", "", "Radiology", "X quang" },
+                    { "14f8cfc0-18a9-4839-9617-3a74b7664ce1", "This role is used for hematology doctors", "Chức vụ này dành cho bác sĩ huyết học", "", "Hematology", "Huyết học" },
+                    { "204c3b8b-590c-4aac-91f6-03638683c76c", "This role is used for gastroenterology doctors", "Chức vụ này dành cho bác sĩ tiêu hóa", "", "Gastroenterology", "Tiêu hóa" },
+                    { "317205c0-4a50-47e2-9d38-dd24197f6b91", "This role is used for endocrinology doctors", "Chức vụ này dành cho bác sĩ nội tiết", "", "Endocrinology", "Nội tiết" },
+                    { "33d7ee8c-3c88-419e-874a-fe64e321a5d2", "This role is used for surgery doctors", "Chức vụ này dành cho bác sĩ phẫu thuật", "", "Surgery", "Phẫu thuật" },
+                    { "426c853f-c038-4507-8b8c-764ed57dee0d", "This role is used for ophthalmology doctors", "Chức vụ này dành cho bác sĩ mắt", "", "Ophthalmology", "Mắt" },
+                    { "4748b4b6-cb22-4b3f-a7d5-3dc0fdac3204", "This role is used for urology doctors", "Chức vụ này dành cho bác sĩ tiết niệu", "", "Urology", "Tiết niệu" },
+                    { "4cb4e0e7-5142-4ddd-9443-1e93e9e455b4", "This role is used for dermatology doctors", "Chức vụ này dành cho bác sĩ da liễu", "", "Dermatology", "Da liễu" },
+                    { "55a6de2f-ee00-4346-abbc-f0a9c709fe9b", "This role is used for vascular surgery doctors", "Chức vụ này dành cho bác sĩ phẫu thuật mạch máu", "", "Vascular Surgery", "Phẫu thuật mạch máu" },
+                    { "591dc94f-e850-4e7e-86fa-21409fdd5914", "This role is used for nephrology doctors", "Chức vụ này dành cho bác sĩ thận", "", "Nephrology", "Thận" },
+                    { "66005a74-404d-4ac8-a73e-343d392f0af8", "This role is used for general practice doctors", "Chức vụ này dành cho bác sĩ y học tổng quát", "", "General Practice", "Y học tổng quát" },
+                    { "70ba2fb8-5280-4b55-b8cc-805b06b669d5", "This role is used for psychiatry doctors", "Chức vụ này dành cho bác sĩ tâm thần học", "", "Psychiatry", "Tâm thần học" },
+                    { "720dc86b-86ee-4048-9540-74fd3eb42ca9", "This role is used for oncology doctors", "Chức vụ này dành cho bác sĩ ung thư", "", "Oncology", "Ung thư" },
+                    { "830618e4-7edf-439f-b523-7595ff94ff1e", "This role is used for infectious disease doctors", "Chức vụ này dành cho bác sĩ nhiễm trùng", "", "Infectious Disease", "Nhiễm trùng" },
+                    { "86a47f17-8d18-4d44-8211-78fe1c47ea52", "This role is used for pediatrics doctors", "Chức vụ này dành cho bác sĩ nhi", "", "Pediatrics", "Nhi" },
+                    { "922a6f25-2fdb-4236-96f8-5b42e788385b", "This role is used for neurology doctors", "Chức vụ này dành cho bác sĩ thần kinh", "", "Neurology", "Thần kinh" },
+                    { "94b3d632-0fc4-4cf0-8c57-cf634ee1bac9", "This role is used for otolaryngology doctors", "Chức vụ này dành cho bác sĩ tai mũi họng", "", "Otolaryngology", "Tai mũi họng" },
+                    { "9f982568-56ba-4c1f-a8d9-389a4d839edf", "This role is used for cardiology doctors", "Chức vụ này dành cho bác sĩ tim mạch", "", "Cardiology", "Tim mạch" },
+                    { "b275c5bd-169d-40f6-a9e8-1358973d9836", "This role is used for non-doctor users", "Chức vụ này dành cho người không phải là bác sĩ", "", "No Specialty", "Đéo có chuyên khoa" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_bookings_DoctorId",

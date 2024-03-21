@@ -17,10 +17,14 @@ namespace BookingCare.API.Profiles
             CreateMap<RoleDto, Role>();
 
             CreateMap<Specialty, SpecialtyDto>();
-            CreateMap<SpecialtyDto, Specialty>();
+            CreateMap<SpecialtyDto, Specialty>()
+                .ForMember(dest => dest.Doctors, opt => opt.Ignore());
 
             CreateMap<Position, PositionDto>();
             CreateMap<PositionDto, Position>();
+
+            CreateMap<ScheduleTime, ScheduleTimeDto>();
+            CreateMap<ScheduleTimeDto, ScheduleTime>();
         }
     }
 }

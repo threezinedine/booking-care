@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.JSInterop
+
+@inject IJSRuntime JSRuntime
+
+<div class="container">
+	<div class="content">
+		<div class="label">@Label <span>@(Required && Choices.Count == 0 && Type != InputType.Image ? "*": "")</span></div>
+		<div class="input-wrapper">
+			@if (Choices.Count == 0)
+			{
+				@if (IconClass != string.Empty)
+				{
+					<i class="@IconClass"></i>
+				}
+
+				@if (Type == InputType.Image)
+				{
+					<InputFile 
+						id="@($"input-{Label}")"
+						hidden
+						OnChange="UploadFile"/>
+					<label for="@($"input-{Label}")" class="upload-image btn">Upload</label>
+					<div class="preview btn @(Value != string.Empty ? "": "deactive")" 
+								@onclick="ShowPreview">Preview</div>
+					<div class="image-display-container">
+						<div class="image-display-background @(m_ShowPreview ? "active": "")" 
+								@onclick="HidePreview"/>
+						<div class="image-display-content @(m_ShowPreview ? "active": "")">
+							<div class="image-wrapper">
+								<img src="@DisplayImageURL" />
+							</div>
+						</div>
+					</div>
+				}
+				else if (Editable)
+				{
+					<input type="@(GetInputType())"
+							@ref="m_Element"
+							@bind="CurrentValue"
+							@onkeypress="OnKeyPress"
+					placeholder="@Placeholder"/>
+
+					<div class="recommend @(m_ShowRecommendation ? "active": "")">
+						@foreach (var recommendation in m_Recommendations)
+						{
+							<div class="recommend-item"
+								@onclick="() => OnClickRecommendation(recommendation)">
+								@recommendation
+							</div>
+						}
+					</div>
+				}
+				else
+				{
+					<input type="@(GetInputType())"
+							class="uneditable-input"
+							@bind="CurrentValue"
+							readonly
+							placeholder="@Placeholder"/>
+				}
+			}
+			else
+			{
+				@if (IconClass != string.Empty)
+				{
+					<i class="@IconClass"></i>
+				}
+				<select class="input-select" @bind="CurrentValue">
+					@foreach (var choice in Choices)
+					{
+						<option class="input-choice" value="@choice">@choice</option>
+					}
+				</select>
+			}
+		</div>
+		@if (m_ErrorMessage != null)
+		{
+			<div class="error-message">@m_ErrorMessage</div>
+		}
+	</div>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,78 @@
+﻿@using BookingCare.Components.Services.RequestService
+
+@inject RequestService m_RequestService
+@inject ToastService m_ToastService
+
+<Form @ref="m_FormRef" OnSubmit="OnFormSubmit">
+	<InputLine>
+		<Input Label="Username" Placeholder="Enter the username" 
+				@bind-Value="Username"
+				Editable="@(!m_EditMode)"
+				IconClass="fa-solid fa-user" />
+		<Input Label="Full Name" Placeholder="Enter the full name" 
+					@bind-Value="FullName"
+					Required="false"
+					IconClass="fa-solid fa-signature"/>
+	</InputLine>
+	@if (!m_EditMode)
+	{
+		<InputLine>
+			<Input Label="Password" Placeholder="Enter the password" 
+					@bind-Value="Password"
+					Type="InputType.Password"
+					IconClass="fa-solid fa-lock"/>
+			<Input Label="Validate Password" Placeholder="Enter the validate password" 
+					@bind-Value="ValidatePassword"
+					ValidateFunc="OnValidateTheValidatePassword"
+					Type="InputType.Password"
+					IconClass="fa-solid fa-lock"/>
+		</InputLine>
+	}
+	<InputLine>
+		<Input Label="Email" Placeholder="Enter the email" 
+				@bind-Value="Email"
+				Type="InputType.Email"
+				IconClass="fa-solid fa-envelope"/>
+		<Input Label="Gender"
+			   @bind-Value="Gender"
+			   IconClass="fa-solid fa-venus-mars"
+				Choices="@Genders" />
+	</InputLine>	
+	<InputLine>
+		<Input Label="Address" Placeholder="Enter the address"
+					Type="InputType.Text" 
+					Required=false
+					@bind-Value="Address"
+					IconClass="fa-solid fa-location-dot"/>
+		<Input Label="Phone Number" Placeholder="Enter the phone number" 
+					Required=false
+					@bind-Value="PhoneNumber"
+					IconClass="fa-solid fa-phone"/>
+	</InputLine>
+	@if(EditMode)
+	{
+		<InputLine>
+			<Input Label="Role" 
+					Choices="@Roles"
+					@bind-Value="Role"
+					IconClass="fa-brands fa-critical-role"/>
+			<Input Label="Position" 
+					Choices="@Positions"
+					@bind-Value="Position"
+					IconClass="fa-brands fa-critical-role"/>
+			<Input Label="Specialties"
+					Choices="@Specialties"
+					@bind-Value="Specialty"
+					IconClass="fa-brands fa-critical-role"/>
+		</InputLine>
+		<Input Label="Avatar"
+				Type="InputType.Image"
+				@bind-Value="ImageUrl"
+				IconClass="fa-solid fa-image"/>
+	}
+</Form>
+
+
+@code {
+
+}

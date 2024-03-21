@@ -31,18 +31,17 @@ namespace BookingCare.API.Services.DatabaseService
 		public Task<User?> GetUserByUsername(User userInfo)
 		{
 			var user = m_Users.FirstOrDefault(user => user.Username == userInfo.Username);
-			return Task.FromResult((user == null) ? null : user);
-		}
-
-		public Task Save()
-		{
-			return Task.CompletedTask;
+			return Task.FromResult((user == null) ? null : user.Clone());
 		}
 
 		public Task<Role?> GetRoleByName(Role role)
 		{
 			switch (role.Name_En)
 			{
+				case "Doctor":
+					return Task.FromResult<Role?>(RoleSeeder.Doctor);
+				case "Admin":
+					return Task.FromResult<Role?>(RoleSeeder.Admin);
 				default:
 					return Task.FromResult<Role?>(RoleSeeder.Patient);
 			}
@@ -82,6 +81,51 @@ namespace BookingCare.API.Services.DatabaseService
 			{
 				PositionSeeder.NonPosition.Clone(),
 			});
+		}
+
+		public Task<List<Specialty>> GetAllSpecialties()
+		{
+			return Task.FromResult(new List<Specialty>
+			{
+				SpecialtySeeder.NonSpecialty.Clone()
+			});
+		}
+
+		public Task<User?> GetUserById(string id)
+		{
+			return Task.FromResult(m_Users.FirstOrDefault(user => user.Id == id)?.Clone());
+		}
+
+		public Task UpdateUser(User userInfo)
+		{
+			var user = m_Users.FirstOrDefault(user => user.Username == userInfo.Username);
+			user.PhoneNumber = userInfo.PhoneNumber;
+			user.Position = userInfo.Position;
+			user.Specialty = userInfo.Specialty;
+			user.Role = userInfo.Role;
+			return Task.CompletedTask;
+		}
+
+		public Task DeleteUser(User user)
+		{
+			var existedUser = m_Users.FirstOrDefault(usr => usr.Id == user.Id);
+
+			if (existedUser != null)
+			{
+				m_Users.Remove(existedUser);
+			}
+
+			return Task.CompletedTask;
+		}
+
+		public Task<List<User>> GetUsersByRole(Role fole, int index, int size)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<List<ScheduleTime>> GetAllScheduleTimes()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -34,17 +34,47 @@ namespace BookingCare.API.Contexts
             );
 
             modelBuilder.Entity<Position>().HasData(
-                PositionSeeder.NonPosition     
+                PositionSeeder.NonPosition,
+                PositionSeeder.DoctorMD,
+                PositionSeeder.DoctorDO,
+                PositionSeeder.Professor,
+                PositionSeeder.Fellow
             );
 
             modelBuilder.Entity<Specialty>().HasData(
-                SpecialtySeeder.NonSpecialty
+                SpecialtySeeder.NonSpecialty,
+                SpecialtySeeder.Cardiology,
+                SpecialtySeeder.Dermatology,
+                SpecialtySeeder.Endocrinology,
+                SpecialtySeeder.Gastroenterology,
+                SpecialtySeeder.Hematology,
+                SpecialtySeeder.GeneralPractice,
+                SpecialtySeeder.Neurology,
+                SpecialtySeeder.Oncology,
+                SpecialtySeeder.Ophthalmology,
+                SpecialtySeeder.Otolaryngology,
+                SpecialtySeeder.Pediatrics,
+                SpecialtySeeder.Psychiatry,
+                SpecialtySeeder.Radiology,
+                SpecialtySeeder.Surgery,
+                SpecialtySeeder.Urology,
+                SpecialtySeeder.VascularSurgery,
+                SpecialtySeeder.Nephrology,
+                SpecialtySeeder.Pulmonology,
+                SpecialtySeeder.InfectiousDisease
 			);
 
-            //modelBuilder.Entity<User>()
-            //    .HasData(
-            //        UserSeeder.DefaultAdmin
-            //    );
+            modelBuilder.Entity<ScheduleTime>().HasData(
+                ScheduleTimeSeeder.EightToNine,
+                ScheduleTimeSeeder.NineToTen,
+                ScheduleTimeSeeder.TenToEleven,
+                ScheduleTimeSeeder.ElevenToTwelve,
+                ScheduleTimeSeeder.ThirteenToFourteen,
+                ScheduleTimeSeeder.FourteenToFifteen,
+                ScheduleTimeSeeder.FifteenToSixteen,
+                ScheduleTimeSeeder.SixteenToSeventeen,
+                ScheduleTimeSeeder.SeventeenToEighteen
+			);
         }
 	}
 }

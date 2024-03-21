@@ -1,0 +1,45 @@
+﻿@page "/doctor/{DoctorId}"
+@using BookingCare.Components.Components.Markdown
+
+@inject AuthenticationStateProvider m_AuthStateProvider
+@inject DoctorViewModel m_ViewModel
+@inject ToastService m_ToastService
+
+<PageTitle>@m_ViewModel.Doctor.FullName - @m_ViewModel.Doctor.Position.Name_En</PageTitle>
+
+<Navbar MainPage="false" />
+
+<div class="container">
+	<div class="content">
+		<div class="user-info-container">
+			<div class="user-info-content">
+				<div class="avatar">
+					<img src="@m_ViewModel.AvatarURL" />
+				</div>
+				<div class="user-info-body">
+					<div class="name">
+						<div class="value">@m_ViewModel.Doctor.Position.Name_En</div>
+						<span>&ensp;-&ensp;</span>
+						<div class="value">@m_ViewModel.Doctor.FullName</div>
+					</div>
+					<div class="specialtiy">Specialty: @m_ViewModel.Doctor.Specialty.Name_En</div>
+				</div>
+			</div>
+		</div>
+		<div class="description">
+			@if (m_AuthState?.User?.Identity?.Name == m_ViewModel.Doctor.Username)
+			{
+				<Markdown @bind-Content="m_ViewModel.Doctor.Description"/>
+				<div class="btn" @onclick="OnUpdateDoctorDescription">Update</div>
+			}
+			else
+			{
+				<MarkdownPreview Content="@m_ViewModel.Doctor.Description" />
+			}
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

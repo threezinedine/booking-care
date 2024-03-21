@@ -7,7 +7,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingCare.Components.Components.WrapperSection
+namespace BookingCare.Components.Components
 {
 	public partial class WrapperSection
 	{

@@ -120,6 +120,12 @@
   <data name="language" xml:space="preserve">
     <value>En</value>
   </data>
+  <data name="outstanding-doctor-title" xml:space="preserve">
+    <value>Outstanding Doctors</value>
+  </data>
+  <data name="specialty-title" xml:space="preserve">
+    <value>Specialties</value>
+  </data>
   <data name="website-subtitle" xml:space="preserve">
     <value>Comprehensive Healthcare Platform</value>
   </data>

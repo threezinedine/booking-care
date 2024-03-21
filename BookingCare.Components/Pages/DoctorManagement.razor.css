@@ -1,0 +1,42 @@
+.container 
+{
+
+}
+
+.content 
+{
+
+}
+
+.doctor-finding 
+{
+    width: 50vh;
+    margin: auto;
+}
+
+.btn 
+{
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #aaa;
+    margin: var(--wrapper-margin);
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover
+{
+    opacity: 0.8;
+}
+
+.btn.deactive 
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn:hover.deactive
+{
+    opacity: 1;
+}

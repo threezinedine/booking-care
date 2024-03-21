@@ -3,19 +3,26 @@
 		<div class="content-child brand">
 			<Logo />
 		</div>
-		<div class="content-child pages">
-			<NavItem Title="Specialty" 
-					SubTitle="Choose by specialty" To="/specialties" />
-			<NavItem Title="Clinic" 
-					SubTitle="Choose clinic" To="/clinics" />
-			<NavItem Title="Doctor" 
-					SubTitle="Choose proffessor" To="/doctors" />
-			<NavItem Title="Medical Service" 
-					SubTitle="General examination" To="/services" />
-		</div>
-		<div class="content-child support">
-			<Support />	
-		</div>
+		@if (MainPage)
+		{
+			<div class="content-child pages">
+				<NavItem Title="Specialty" 
+						SubTitle="Choose by specialty" To="/specialties" />
+				<NavItem Title="Clinic" 
+						SubTitle="Choose clinic" To="/clinics" />
+				<NavItem Title="Doctor" 
+						SubTitle="Choose proffessor" To="/doctors" />
+				<NavItem Title="Medical Service" 
+						SubTitle="General examination" To="/services" />
+			</div>
+			<div class="content-child support">
+				<Support />	
+			</div>
+		}
+		else
+		{
+			<div class="spacer" />
+		}
 	</div>
 </nav>
 

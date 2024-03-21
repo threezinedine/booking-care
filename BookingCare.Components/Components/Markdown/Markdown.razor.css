@@ -1,0 +1,27 @@
+﻿.containter 
+{
+
+}
+
+.content 
+{
+    margin: var(--wrapper-margin); 
+    display: flex;
+}
+
+.editor 
+{
+    flex: 1;
+}
+
+.preview 
+{
+    flex: 1;
+    margin-left: 20px;
+    user-select: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 12px;
+    overflow-y: scroll;
+    height: var(--markdown-height);
+}

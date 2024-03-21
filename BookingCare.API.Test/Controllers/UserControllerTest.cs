@@ -9,19 +9,31 @@ namespace BookingCare.API.Test.Controllers
     using BookingCare.API.Test.ResponseParser;
     using BookingCare.Shared.ModelDtos;
     using Microsoft.AspNetCore.Mvc;
+	using BookingCare.API.Models;
 
-    public class UserControllerTest : IClassFixture<ServerFixture>, IDisposable
+	public class UserControllerTest : IClassFixture<ServerFixture>, IDisposable
 	{
 		private readonly ServerFixture m_ServerFixture;
 		private readonly UserDto m_FirstValidUser = new UserDto
 		{
 			Username = "threezinedine-username",
 			Password = "threezinedine-password",
-		}; 
+			PhoneNumber = "1234567890",
+			ImageUrl = "test-image-url",
+		};
+		private readonly UserDto m_SecondValidUser = new UserDto
+		{
+			Username = "second-username",
+			Password = "second-password",
+			PhoneNumber = "1234567890",
+		};
 
         public UserControllerTest(ServerFixture serverFixture)
         {
-			m_ServerFixture = serverFixture; 
+			m_ServerFixture = serverFixture;
+
+			m_FirstValidUser.Position = m_ServerFixture.Mapper.Map<PositionDto>(PositionSeeder.NonPosition);
+			m_FirstValidUser.Specialty = m_ServerFixture.Mapper.Map<SpecialtyDto>(SpecialtySeeder.NonSpecialty);
         }
 
 		[Fact]
@@ -32,6 +44,20 @@ namespace BookingCare.API.Test.Controllers
 
 			// Assert
 			users.Count.Should().Be(0);
+		}
+
+		[Fact]
+		public async void WhenRegisterAnAdminUser_ThatUserIsRegistered()
+		{
+			// Act 
+			var response = await m_ServerFixture.UserController.RegisterAdminUser(m_FirstValidUser);
+
+			// Assert
+			var users = await m_ServerFixture.DatabaseService.GetAllUsers();
+			var adminUser = users.FirstOrDefault(usr => usr.Username == m_FirstValidUser.Username);
+
+			adminUser.Should().NotBeNull();
+			adminUser!.Role.Name_En.Should().Be(RoleSeeder.Admin.Name_En);
 		}
 
 		[Fact]
@@ -161,6 +187,61 @@ namespace BookingCare.API.Test.Controllers
 			result.Count.Should().BeGreaterThanOrEqualTo(1);
 		}
 
+		[Fact]
+		public async void WhenQueryAllSpecialties_ThenReturnAtLeast1Specialty()
+		{
+			// Act 
+			var response = await m_ServerFixture.UserController.GetAllSpecialties();
+
+			// Assert 
+			var result = await ResponseParser.GetListObjectFromOkResponse(response!);
+			result.Count.Should().BeGreaterThanOrEqualTo(1);
+		}
+
+		[Fact]
+		public async void GivenAUserIsRegistered_WhenUpdateOtherInformation_TheseValuesAreUpdated()
+		{
+			// Arrange
+			await m_ServerFixture.UserController.RegisterUser(m_FirstValidUser);
+			await m_ServerFixture.LoginAsUser(m_FirstValidUser);
+
+			m_FirstValidUser.Role = m_ServerFixture.Mapper.Map<RoleDto>(RoleSeeder.Admin);
+			await m_ServerFixture.UserController.UpdateUser(m_FirstValidUser);
+
+			// Act 
+			var response = await m_ServerFixture.UserController.GetUser();
+
+			// Assert
+			var user = await ResponseParser.GetObjectFromOkResponse(response!);
+			user.PhoneNumber.Should().Be(m_FirstValidUser.PhoneNumber);
+			user.Position.Name_En.Should().Be(m_FirstValidUser.Position.Name_En);
+			user.Specialty.Name_En.Should().Be(m_FirstValidUser.Specialty.Name_En);
+			user.Role.Name_En.Should().Be(RoleSeeder.Admin.Name_En);
+		}
+
+		[Fact]
+		public async void Given2UsersAreRegisteredAndTheFirstOneIsAdmin_WhenTheFirstOneDeleteTheSecondOne_ThenTheSecondOneIsDeleted()
+		{
+			// Arrange
+			await m_ServerFixture.UserController.RegisterUser(m_FirstValidUser);
+			await m_ServerFixture.UserController.RegisterUser(m_SecondValidUser);
+
+			var secondUser = await m_ServerFixture.DatabaseService.GetUserByUsername(new User
+			{
+				Username = m_SecondValidUser.Username,
+			});
+
+			await m_ServerFixture.LoginAsUser(m_FirstValidUser);
+
+			// Act 
+			var response = await m_ServerFixture.UserController.DeleteUser(secondUser!.Id);
+
+			// Assert
+			response.Should().BeOfType<OkResult>();
+			var users = await m_ServerFixture.DatabaseService.GetAllUsers();
+			users.Count.Should().Be(1);
+			users[0].Username.Should().Be(m_FirstValidUser.Username);
+		}
 		public async void Dispose()
 		{
 			await m_ServerFixture.ResetDatabase();

@@ -70,6 +70,24 @@ namespace BookingCare.Components.Shared.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Outstanding Doctors.
+        /// </summary>
+        public static string outstanding_doctor_title {
+            get {
+                return ResourceManager.GetString("outstanding-doctor-title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialties.
+        /// </summary>
+        public static string specialty_title {
+            get {
+                return ResourceManager.GetString("specialty-title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comprehensive Healthcare Platform.
         /// </summary>
         public static string website_subtitle {

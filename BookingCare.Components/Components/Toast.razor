@@ -1,0 +1,31 @@
+﻿@using BookingCare.Components.Services.ToastService
+@inject ToastService m_ToastService
+
+
+<div class="container">
+	<div class="content">
+		@foreach (var message in m_ToastMessages)
+		{
+			<div class="toast">
+				<div class="header" style="@GetBackgroundColor(message.Type)">
+					<div class="type-wrapper">
+						<i class="fa-solid fa-thumbs-up"></i>
+					</div>
+					<div class="title">@message.Title</div>
+					<div class="close btn" @onclick="() => RemoveMessage(message)">
+						<i class="fa-solid fa-x"/>
+					</div>
+				</div>
+				<div class="body">@message.Message</div>
+				@if (message.Duration > 0)
+				{
+					<div class="timer" style="animation-duration:@(message.Duration / 1000)s;@GetBackgroundColor(message.Type)"/>
+				}
+			</div>	
+		}
+	</div>
+</div>
+
+@code {
+
+}

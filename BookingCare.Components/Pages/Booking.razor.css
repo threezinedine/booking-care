@@ -1,0 +1,36 @@
+.container 
+{
+
+}
+
+.content 
+{
+    margin: var(--wrapper-margin);
+}
+
+.schedules 
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.schedule-time
+{
+    padding: 5px 8px;
+    cursor: pointer;
+    background-color: #fffc61;
+    border-radius: 5px;
+    color: #333;
+}
+
+.schedule-time.active 
+{
+    background-color: #fffb22;
+    border: 1px solid #fffa00;
+}
+
+.schedule-time:hover
+{
+    opacity: 0.8;
+}

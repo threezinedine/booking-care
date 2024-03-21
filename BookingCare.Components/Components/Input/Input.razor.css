@@ -1,0 +1,171 @@
+﻿.container 
+{
+    margin-bottom: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.content 
+{
+    width: 100%;
+}
+
+.label 
+{
+    user-select: none;
+}
+
+.label span 
+{
+    color: red;
+}
+
+.input-wrapper {
+    position: relative;
+    border-bottom: 2px solid #aaa;
+    padding: 8px 10px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input 
+{
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.error-message 
+{
+    color: red;
+    font-size: 16px;
+    margin-top: 8px;
+    user-select: none;
+}
+
+.input-select 
+{
+    outline: none;
+    border: none;
+    user-select: none;
+    margin-left: 20px;
+    margin-bottom: 1px;
+    width: 100%;
+}
+
+.input-choice 
+{
+    padding: 12px;
+}
+
+.uneditable-input {
+    color: #666; 
+    cursor: not-allowed;
+}
+
+.btn 
+{
+    margin-left: 12px;
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333;
+}
+
+.btn:hover 
+{
+    opacity: .8;
+}
+
+.image-display-background
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-display-content 
+{
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 20%;
+}
+
+.image-display-background.active 
+{
+    display: block;
+}
+
+.image-wrapper 
+{
+    max-width: 60vw;
+    max-height: 60vh;
+    display: flex;
+}
+
+.image-wrapper img
+{
+    width: 100%;
+    object-fit: contain;
+}
+
+.image-display-content 
+{
+    display: none;
+}
+
+.image-display-content.active 
+{
+    display: block;
+}
+
+.btn.deactive 
+{
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.btn.deactive:hover
+{
+    opacity: 1;
+}
+
+.recommend {
+    position: absolute;
+    display: none;
+    top: 120%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-width: 100%;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.recommend.active 
+{
+    display: block;
+}
+
+.recommend-item 
+{
+    padding: 12px;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recommend-item:hover 
+{
+    background-color: #ddd;
+}

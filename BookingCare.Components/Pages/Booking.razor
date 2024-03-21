@@ -1,0 +1,24 @@
+﻿@page "/system/bookings"
+@layout SystemLayout
+@inject BookingViewModel ViewModel
+@inject ToastService ToastService
+
+<PageTitle>Bookings Management</PageTitle>
+
+<div class="container">
+	<div class="content">
+		Manage the booking here
+		<div class="schedules">
+			@foreach (var scheduleTime in ViewModel.ScheduleTimes)
+			{
+				<div class="schedule-time">
+					@($"{scheduleTime.Start.ToString("HH:mm")} - {scheduleTime.End.ToString("HH:mm")}")
+				</div>
+			}
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

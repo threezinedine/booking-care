@@ -1,0 +1,50 @@
+﻿.container 
+{
+    background-color: #318CE7;
+}
+
+.content 
+{
+    position: relative;
+    display: flex;
+    padding: 0 var(--wrapper-margin);
+    user-select: none;
+    cursor: pointer;
+}
+
+.spacer 
+{
+    flex: 1;
+}
+
+.exit-btn
+{
+    padding: 10px 20px; 
+    color: #fff;
+}
+
+.right-tools 
+{
+    display: flex;
+}
+
+.identity 
+{
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.identity:hover,
+.exit-btn:hover 
+{
+    opacity: 0.8;
+}
+
+.content,
+.spacer,
+.menu-btn,
+.exit-btn 
+{
+    /*border: 1px solid red;*/
+}

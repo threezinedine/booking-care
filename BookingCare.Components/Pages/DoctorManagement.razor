@@ -1,0 +1,30 @@
+﻿@page "/system/doctors"
+@using BookingCare.Components.Components.Markdown
+
+@layout SystemLayout
+@attribute [Authorize(Roles = "Admin")]
+@inject ToastService ToastService
+@inject DoctorManagementViewModel ViewModel
+
+<PageTitle>Doctor Management</PageTitle>
+
+<div class="container">
+	<div class="content">
+		<div class="doctor-finding">
+			<Input Label="Find Doctor" Required="false" 
+					RecommendFunc="@ViewModel.RecommendFunc"
+					@bind-Value="ViewModel.SearchDoctorUsername"
+					IconClass="fa-solid fa-user"
+					Type="InputType.Text" />
+		</div>
+		<div class="markdown">
+			<Markdown @bind-Content="ViewModel.SelectedDoctor.Description" />
+			<div class="btn @(ViewModel.SelectedDoctor.Username == string.Empty ? "deactive": "")" 
+					@onclick="OnClickUpdate">Update</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

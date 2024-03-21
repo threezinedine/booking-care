@@ -1,0 +1,20 @@
+﻿@inject NavigationManager m_NavigationManager
+@inject AuthenticationStateProvider m_AuthenticationStateProvider
+
+
+<div class="container">
+	<div class="content">
+		<Dropdown Items="@Items"/>
+		<div class="spacer" />
+		<div class="right-tools">
+			<div class="identity">@m_AuthState?.User?.Identity?.Name</div>
+			<div class="exit-btn" @onclick="@(() => m_NavigationManager.NavigateTo("/"))">
+				<i class="fa-solid fa-right-from-bracket"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}

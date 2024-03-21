@@ -26,6 +26,7 @@ namespace BookingCare.API.Services.TokenService
 					{
 						new Claim(ClaimTypes.NameIdentifier, user.Id),
 						new Claim(ClaimTypes.Name, user.Username),
+						new Claim(ClaimTypes.Role, user.Role.Name_En),
 					}
 				),
 				Expires = DateTime.UtcNow.AddHours(2),

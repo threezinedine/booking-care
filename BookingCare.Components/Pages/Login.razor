@@ -10,24 +10,18 @@
 			Login
 		</div>
 		<div class="login-form">
-			<div class="login-input username">
-				<div class="label">Username</div>
-				<div class="input">
-					<i class="fa-solid fa-user"></i>
-					<input class="input-tag" type="text" 
-							@bind="m_LoginViewModel.Username"
-							placeholder="Type your username"/>
-				</div>
-			</div>
-			<div class="login-input password">
-				<div class="label">Password</div>
-				<div class="input">
-					<i class="fa-solid fa-lock"></i>
-					<input class="input-tag" type="password" 
-							@bind="m_LoginViewModel.Password"
-							placeholder="Type your password"/>
-				</div>
-			</div>
+			<Form @ref="m_FormRef" OnSubmit="OnLogin">
+				<Input Label="Username" 
+						IconClass="fa-solid fa-user"
+						Placeholder="Type your username"
+						@bind-Value="m_LoginViewModel.Username" />
+				<Input Label="Password" 
+						Type="InputType.Password"
+						IconClass="fa-solid fa-lock"
+						Placeholder="Type your password"
+						@bind-Value="m_LoginViewModel.Password" />
+			</Form>
+
 			<div class="forgot-password-container">
 				<div class="forgot-password-content" @onclick="OnClickForgotPassword">
 					Forget password?

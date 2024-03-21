@@ -29,14 +29,34 @@
 
 .pages
 {
-    /*border: 1px solid blue;*/
     height: 100%;
-    flex:3;
 }
+
+.spacer
+{
+    flex: 3;
+}
+
+.pages, 
+.spacer 
+{
+    flex: 3;
+}
+
 
 .support 
 {
     /*border: 1px solid green;*/
     height: 100%;
-    flex:1;
+}
+
+.support,
+.return-btn 
+{
+    flex: 1;
+}
+
+.return-btn 
+{
+
 }

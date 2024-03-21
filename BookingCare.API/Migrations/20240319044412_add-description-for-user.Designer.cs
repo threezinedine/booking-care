@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240303083607_first-migration")]
-    partial class firstmigration
+    [Migration("20240319044412_add-description-for-user")]
+    partial class adddescriptionforuser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -143,9 +143,33 @@ namespace BookingCare.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "750c1298-e23a-43f0-afda-54644f5e31cc",
+                            Id = "7cf4c911-f306-40d4-9718-80d47366666d",
                             Name_En = "Non Position",
                             Name_Vi = "Đéo có"
+                        },
+                        new
+                        {
+                            Id = "040c651f-3150-4f38-b924-95d7c9f744ac",
+                            Name_En = "Doctor of Medicine",
+                            Name_Vi = "Trưởng Khoa"
+                        },
+                        new
+                        {
+                            Id = "a09f70b2-7bfa-46ae-a819-ded8773c614f",
+                            Name_En = "Doctor of Osteopathic Medicine",
+                            Name_Vi = "Bác sĩ y học thực hành"
+                        },
+                        new
+                        {
+                            Id = "e7f122b9-7fbc-41cf-8b5b-1bd341b37ea8",
+                            Name_En = "Professor",
+                            Name_Vi = "Giáo sư"
+                        },
+                        new
+                        {
+                            Id = "ae1ffdd6-b9cf-490c-9e7d-1d1de6d520bd",
+                            Name_En = "Fellow",
+                            Name_Vi = "Thực tập chuyên môn"
                         });
                 });
 
@@ -169,19 +193,19 @@ namespace BookingCare.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4e1b9bb1-b407-4875-bca7-bc48d4018497",
+                            Id = "878d7e8c-07bd-4527-802f-cd127db0554b",
                             Name_En = "Patient",
                             Name_Vi = "Bệnh nhân"
                         },
                         new
                         {
-                            Id = "85314483-5730-4409-81b8-1ad31d664537",
+                            Id = "fe8cc134-355a-4b3b-90b1-8d9b37dc0d3f",
                             Name_En = "Doctor",
                             Name_Vi = "Bác sĩ"
                         },
                         new
                         {
-                            Id = "e0302c20-ddbe-46aa-95f4-d82dcfd4f4af",
+                            Id = "95cd5689-e3b7-4ad3-8605-e55e1ff94030",
                             Name_En = "Admin",
                             Name_Vi = "Đấng"
                         });
@@ -266,12 +290,183 @@ namespace BookingCare.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e96b5e58-8a02-4176-872f-12f701074ef4",
+                            Id = "0b3a1ca5-3e55-4574-a11f-f23483b696d5",
                             Description_En = "This role is used for non-doctor users",
                             Description_Vi = "Chức vụ này dành cho người không phải là bác sĩ",
                             ImageUrl = "",
                             Name_En = "No Specialty",
                             Name_Vi = "Đéo có chuyên khoa"
+                        },
+                        new
+                        {
+                            Id = "3b53448a-1f83-4ce2-a116-0d555e4e1faf",
+                            Description_En = "This role is used for cardiology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ tim mạch",
+                            ImageUrl = "",
+                            Name_En = "Cardiology",
+                            Name_Vi = "Tim mạch"
+                        },
+                        new
+                        {
+                            Id = "40a183be-c6bb-40eb-9d67-ef2ef553bc0a",
+                            Description_En = "This role is used for dermatology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ da liễu",
+                            ImageUrl = "",
+                            Name_En = "Dermatology",
+                            Name_Vi = "Da liễu"
+                        },
+                        new
+                        {
+                            Id = "d3b128de-a658-4033-aa4f-e9824388cc53",
+                            Description_En = "This role is used for endocrinology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ nội tiết",
+                            ImageUrl = "",
+                            Name_En = "Endocrinology",
+                            Name_Vi = "Nội tiết"
+                        },
+                        new
+                        {
+                            Id = "9d8499b3-b147-4e97-8dfa-87c08e8a05c7",
+                            Description_En = "This role is used for gastroenterology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ tiêu hóa",
+                            ImageUrl = "",
+                            Name_En = "Gastroenterology",
+                            Name_Vi = "Tiêu hóa"
+                        },
+                        new
+                        {
+                            Id = "490475b2-002c-49ea-9e10-68f643f053f1",
+                            Description_En = "This role is used for hematology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ huyết học",
+                            ImageUrl = "",
+                            Name_En = "Hematology",
+                            Name_Vi = "Huyết học"
+                        },
+                        new
+                        {
+                            Id = "f4cda9d5-f6ab-4548-9fa6-652a1e63d309",
+                            Description_En = "This role is used for general practice doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ y học tổng quát",
+                            ImageUrl = "",
+                            Name_En = "General Practice",
+                            Name_Vi = "Y học tổng quát"
+                        },
+                        new
+                        {
+                            Id = "71d40d7d-20b5-422d-a5ec-c13ac0de5bfb",
+                            Description_En = "This role is used for neurology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ thần kinh",
+                            ImageUrl = "",
+                            Name_En = "Neurology",
+                            Name_Vi = "Thần kinh"
+                        },
+                        new
+                        {
+                            Id = "e94685f8-d3e4-4ddb-aec8-8dbb5d327038",
+                            Description_En = "This role is used for oncology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ ung thư",
+                            ImageUrl = "",
+                            Name_En = "Oncology",
+                            Name_Vi = "Ung thư"
+                        },
+                        new
+                        {
+                            Id = "9b5f20ce-8b46-4eca-a873-33b4d595b25a",
+                            Description_En = "This role is used for ophthalmology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ mắt",
+                            ImageUrl = "",
+                            Name_En = "Ophthalmology",
+                            Name_Vi = "Mắt"
+                        },
+                        new
+                        {
+                            Id = "8d95efbe-e88c-49eb-9ec9-9d764ec42287",
+                            Description_En = "This role is used for otolaryngology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ tai mũi họng",
+                            ImageUrl = "",
+                            Name_En = "Otolaryngology",
+                            Name_Vi = "Tai mũi họng"
+                        },
+                        new
+                        {
+                            Id = "d85d5256-d308-4370-8aba-be81d9bcc72c",
+                            Description_En = "This role is used for pediatrics doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ nhi",
+                            ImageUrl = "",
+                            Name_En = "Pediatrics",
+                            Name_Vi = "Nhi"
+                        },
+                        new
+                        {
+                            Id = "5645a66f-e1af-4cd8-8946-a6b4b093be52",
+                            Description_En = "This role is used for psychiatry doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ tâm thần học",
+                            ImageUrl = "",
+                            Name_En = "Psychiatry",
+                            Name_Vi = "Tâm thần học"
+                        },
+                        new
+                        {
+                            Id = "a83172a3-6d12-45a0-917a-bb247110fd07",
+                            Description_En = "This role is used for radiology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ x quang",
+                            ImageUrl = "",
+                            Name_En = "Radiology",
+                            Name_Vi = "X quang"
+                        },
+                        new
+                        {
+                            Id = "b7de1a7f-bfcc-4712-98fc-5ccc637e3646",
+                            Description_En = "This role is used for surgery doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ phẫu thuật",
+                            ImageUrl = "",
+                            Name_En = "Surgery",
+                            Name_Vi = "Phẫu thuật"
+                        },
+                        new
+                        {
+                            Id = "2e5d7b63-e988-42d4-b6bb-98f484df5ffb",
+                            Description_En = "This role is used for urology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ tiết niệu",
+                            ImageUrl = "",
+                            Name_En = "Urology",
+                            Name_Vi = "Tiết niệu"
+                        },
+                        new
+                        {
+                            Id = "d80a12b9-fcf3-45e1-93fe-393ef76b84ba",
+                            Description_En = "This role is used for vascular surgery doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ phẫu thuật mạch máu",
+                            ImageUrl = "",
+                            Name_En = "Vascular Surgery",
+                            Name_Vi = "Phẫu thuật mạch máu"
+                        },
+                        new
+                        {
+                            Id = "23ced782-1c57-4dba-80b6-6efaf8c8f4ec",
+                            Description_En = "This role is used for nephrology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ thận",
+                            ImageUrl = "",
+                            Name_En = "Nephrology",
+                            Name_Vi = "Thận"
+                        },
+                        new
+                        {
+                            Id = "a1e6e016-6c6f-4ffc-b9e6-1fc314ce3cb2",
+                            Description_En = "This role is used for pulmonology doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ hô hấp",
+                            ImageUrl = "",
+                            Name_En = "Pulmonology",
+                            Name_Vi = "Hô hấp"
+                        },
+                        new
+                        {
+                            Id = "9576f8e5-5e3c-4dba-b2b1-ab2b84f0b655",
+                            Description_En = "This role is used for infectious disease doctors",
+                            Description_Vi = "Chức vụ này dành cho bác sĩ nhiễm trùng",
+                            ImageUrl = "",
+                            Name_En = "Infectious Disease",
+                            Name_Vi = "Nhiễm trùng"
                         });
                 });
 
@@ -299,6 +494,10 @@ namespace BookingCare.API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

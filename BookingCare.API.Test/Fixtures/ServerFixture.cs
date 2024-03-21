@@ -23,6 +23,7 @@ namespace BookingCare.API.Test.Fixtures
 		private TestTokenService m_TokenService;
 		private IPasswordHashingService m_PasswordHashingService;
 		private IDatabaseService m_DatabaseService;
+		private IMapper m_Mapper;
 
         public ServerFixture()
         {
@@ -31,7 +32,7 @@ namespace BookingCare.API.Test.Fixtures
 			{
 				cfg.AddProfile<AutoMapperProfile>();
 			});
-			var mapper = mapperConfig.CreateMapper();
+			m_Mapper = mapperConfig.CreateMapper();
 
 			// Token Service Configuration
 			m_TokenService = new TestTokenService();
@@ -42,7 +43,7 @@ namespace BookingCare.API.Test.Fixtures
 			// Database Service configuration
 			m_DatabaseService = new TestDatabaseService();
 
-			m_UserController = new UserController(mapper,
+			m_UserController = new UserController(m_Mapper,
 													m_TokenService, 
 													m_PasswordHashingService,
 													m_DatabaseService); 
@@ -61,6 +62,11 @@ namespace BookingCare.API.Test.Fixtures
 		public IDatabaseService DatabaseService
 		{
 			get => m_DatabaseService;
+		}
+
+		public IMapper Mapper
+		{
+			get => m_Mapper;
 		}
 
 		public async Task SetTestToken(string newToken)

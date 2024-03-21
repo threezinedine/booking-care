@@ -1,0 +1,59 @@
+﻿.menu-btn
+{
+    border-right: 2px solid #fff;
+    border-left: 2px solid #fff;
+    padding: 10px 20px; 
+    color: #fff;
+}
+
+.menu 
+{
+    top: 100%;
+    min-width: 15%;
+}
+
+/*.menu.active*/ 
+.menu-container:hover .menu
+{
+    display: block;
+}
+
+.menu-item 
+{
+    position: relative;
+    padding: 10px;
+}
+
+.menu-item,
+.sub-menu-item
+{
+    padding: 10px;
+}
+
+.menu-item:hover,
+.sub-menu-item:hover
+{
+    background-color: #ddd;
+}
+
+.menu,
+.sub-menu
+{
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 10px 0;
+}
+
+.sub-menu
+{
+    left: 100%;
+    top: 0;
+    min-width: 100%;
+}
+
+.menu-item:hover > .sub-menu 
+{
+    display: block;
+}

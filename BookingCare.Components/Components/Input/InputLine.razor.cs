@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingCare.Components.Components.About
+namespace BookingCare.Components.Components.Input
 {
-	public partial class About
+	public partial class InputLine
 	{
 		[Parameter]
-		public string Title { get; set; } = string.Empty;
+		public RenderFragment? ChildContent { get; set; }
 	}
 }

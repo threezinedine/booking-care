@@ -8,7 +8,7 @@ namespace BookingCare.Components.Pages
 {
 	public partial class Logout
 	{
-		protected override async Task OnAfterRenderAsync(bool firstRender)
+		protected override async Task OnInitializedAsync()
 		{
 			await m_RequestService.ClearToken();
 			m_NavigationManager.NavigateTo("/login", true);
